@@ -1,1 +1,1 @@
-Este proyecto será sobre una tienda de mascotas.
+Este proyecto es una API para una tienda de mascotas.
