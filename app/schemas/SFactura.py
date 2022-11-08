@@ -1,8 +1,7 @@
 from pydantic import BaseModel
 
 class Base(BaseModel):
-	nombre: str
-	precio: int
+	pass
 
 class Create(Base):
 	pass
