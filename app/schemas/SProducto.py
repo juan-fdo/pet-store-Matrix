@@ -1,13 +1,13 @@
 from pydantic import BaseModel
 
-class ProductoBase(BaseModel):
+class Base(BaseModel):
 	nombre: str
 	precio: int
 
-class ProductoCreate(ProductoBase):
+class Create(Base):
 	pass
 
-class SProducto(ProductoBase):
+class SProducto(Base):
 	id: int
 	class Config:
 		orm_mode = True
