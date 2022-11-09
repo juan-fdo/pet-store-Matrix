@@ -29,3 +29,7 @@ def delete_producto(id: int, db: Session = Depends(get_db)):
 @app.post("/facturas/",response_model = SFactura.SFactura)
 def create_factura(factura: SFactura.Create, db: Session = Depends(get_db)):
 	return CFactura.create(db = db, factura = factura)
+
+@app.get("/facturas/{id}",response_model = SFactura.SFactura)
+def get_factura(id: int, db: Session = Depends(get_db)):
+	return CFactura.get(db, id = id)
