@@ -11,3 +11,9 @@ def create(db: Session, producto: SProducto.Create):
 
 def get(db: Session, id: int):
 	return db.query(Producto).filter(Producto.id == id).first()
+
+def delete(db: Session, id: int):
+	db_producto = get(db = db,id = id)
+	db.delete(db_producto)
+	db.commit()
+	return db_producto
