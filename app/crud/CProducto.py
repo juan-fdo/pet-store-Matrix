@@ -13,7 +13,15 @@ def get(db: Session, id: int):
 	return db.query(Producto).filter(Producto.id == id).first()
 
 def delete(db: Session, id: int):
-	db_producto = get(db = db,id = id)
+	db_producto = get(db = db, id = id)
 	db.delete(db_producto)
 	db.commit()
+	return db_producto
+
+def update(db: Session, producto: SProducto.SProducto):
+	db_producto = get(db = db, id = producto.id)
+	db_producto.nombre = producto.nombre
+	db_producto.precio = producto.precio
+	db.commit()
+	db.refresh(db_producto)
 	return db_producto

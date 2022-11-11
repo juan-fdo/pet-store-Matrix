@@ -24,7 +24,11 @@ def get_producto(id: int, db: Session = Depends(get_db)):
 
 @app.delete("/productos/{id}",response_model = SProducto.SProducto)
 def delete_producto(id: int, db: Session = Depends(get_db)):
-	return CProducto.get(db, id = id).delete_instance()
+	return CProducto.delete(db, id = id)
+
+@app.put("/productos/",response_model = SProducto.SProducto)
+def update_producto(producto: SProducto.SProducto, db: Session = Depends(get_db)):
+	return CProducto.update(db, producto)
 	
 @app.post("/facturas/",response_model = SFactura.SFactura)
 def create_factura(factura: SFactura.Create, db: Session = Depends(get_db)):
