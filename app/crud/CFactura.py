@@ -11,3 +11,10 @@ def create(db: Session, factura: SFactura.Create):
 
 def get(db: Session, id: int):
 	return db.query(Factura).filter(Factura.id == id).first()
+	
+def delete(db: Session, id: int):
+	db_factura = get(db = db, id = id)
+	db.delete(db_factura)
+	db.commit()
+	return db_factura
+
