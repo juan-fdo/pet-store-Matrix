@@ -41,3 +41,20 @@ def get_factura(id: int, db: Session = Depends(get_db)):
 @app.delete("/facturas/{id}",response_model = SFactura.SFactura)
 def delete_factura(id: int, db: Session = Depends(get_db)):
 	return CFactura.delete(db, id = id)
+
+
+@app.post("/facturadetalles/",response_model = SFacturaDetalle.SFacturaDetalle)
+def create_facturaDetalle(facturaDetalle: SFacturaDetalle.Create, db: Session = Depends(get_db)):
+	return CFacturaDetalle.create(db = db, facturaDetalle = facturaDetalle)
+
+@app.get("/facturadetalles/{id}",response_model = SFacturaDetalle.SFacturaDetalle)
+def get_facturaDetalle(id: int, db: Session = Depends(get_db)):
+	return CFacturaDetalle.get(db, id = id)
+
+@app.delete("/facturadetalles/{id}",response_model = SFacturaDetalle.SFacturaDetalle)
+def delete_facturaDetalle(id: int, db: Session = Depends(get_db)):
+	return CFacturaDetalle.delete(db, id = id)
+
+@app.put("/facturadetalles/",response_model = SFacturaDetalle.SFacturaDetalle)
+def update_facturaDetalle(facturaDetalle: SFacturaDetalle.SFacturaDetalle, db: Session = Depends(get_db)):
+	return CFacturaDetalle.update(db, facturaDetalle)
