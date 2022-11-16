@@ -37,3 +37,7 @@ def create_factura(factura: SFactura.Create, db: Session = Depends(get_db)):
 @app.get("/facturas/{id}",response_model = SFactura.SFactura)
 def get_factura(id: int, db: Session = Depends(get_db)):
 	return CFactura.get(db, id = id)
+
+@app.delete("/facturas/{id}",response_model = SFactura.SFactura)
+def delete_factura(id: int, db: Session = Depends(get_db)):
+	return CFactura.delete(db, id = id)
