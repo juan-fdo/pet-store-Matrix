@@ -1,6 +1,6 @@
 from fastapi import Depends, FastAPI
 from db.database import Base, engine, SessionLocal
-from crud import CProducto, CFactura
+from crud import CProducto, CFactura, CFacturaDetalle
 from schemas import SProducto, SFactura, SFacturaDetalle
 from sqlalchemy.orm import Session
 
