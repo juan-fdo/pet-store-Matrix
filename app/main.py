@@ -1,7 +1,7 @@
 from fastapi import Depends, FastAPI
 from db.database import Base, engine, SessionLocal
 from crud import CProducto, CFactura
-from schemas import SProducto, SFactura
+from schemas import SProducto, SFactura, SFacturaDetalle
 from sqlalchemy.orm import Session
 
 app=FastAPI()
