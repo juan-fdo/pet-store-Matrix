@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 class Base(BaseModel):
 	factura_id: int
-	producto_id: id
+	producto_id: int
 	cantidad: int
 
 class Create(Base):
