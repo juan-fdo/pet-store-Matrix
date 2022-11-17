@@ -1,7 +1,27 @@
+Ejecutar en modo administrador
 cmd ctrl+shift+enter
+
 python -m pip install --upgrade pip
 pip install fastapi
 pip install "uvicorn[standard]"
 pip install sqlalchemy
 pip install psycopg2-binary
+
+Ejecutar aplicación
 cd app&&uvicorn main:app --reload
+
+Pruebas iniciales
+curl -L -X POST "http://127.0.0.1:8000/productos/" -H "Content-Type: application/json" --data-raw "{\"nombre\":\"nombre\",\"precio\":\"100\"}"
+curl http://127.0.0.1:8000/productos/1
+curl -L -X PUT "http://127.0.0.1:8000/productos/" -H "Content-Type: application/json" --data-raw "{\"id\":\"1\",\"nombre\":\"nombreModificado\",\"precio\":\"100\"}"
+curl -X DELETE http://127.0.0.1:8000/productos/1
+
+curl -L -X POST "http://127.0.0.1:8000/facturas/" -H "Content-Type: application/json" --data-raw "{}"
+curl http://127.0.0.1:8000/facturas/1
+curl -X DELETE http://127.0.0.1:8000/facturas/1
+
+curl -L -X POST "http://127.0.0.1:8000/facturadetalles/" -H "Content-Type: application/json" --data-raw "{\"factura_id\":\"1\",\"producto_id\":\"1\",\"cantidad\":\"2\"}"
+curl http://127.0.0.1:8000/facturadetalles/1
+curl -L -X PUT "http://127.0.0.1:8000/facturadetalles/" -H "Content-Type: application/json" --data-raw "{\"factura_id\":\"1\",\"producto_id\":\"1\",\"cantidad\":\"3\"}"
+curl -X DELETE http://127.0.0.1:8000/facturadetalles/1
+
