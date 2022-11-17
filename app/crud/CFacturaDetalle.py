@@ -20,6 +20,7 @@ def delete(db: Session, id: int):
 
 def update(db: Session, facturaDetalle: SFacturaDetalle.SFacturaDetalle):
 	db_facturaDetalle = get(db = db, id = facturaDetalle.id)
+	db_facturaDetalle.factura_id = facturaDetalle.factura_id
 	db_facturaDetalle.producto_id = facturaDetalle.producto_id
 	db_facturaDetalle.cantidad = facturaDetalle.cantidad
 	db.commit()
