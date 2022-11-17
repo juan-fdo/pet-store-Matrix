@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 
 class Base(BaseModel):
+	factura_id: int
 	producto_id: id
 	cantidad: int
 
@@ -9,6 +10,5 @@ class Create(Base):
 
 class SFacturaDetalle(Base):
 	id: int
-	factura_id: int
 	class Config:
 		orm_mode = True
