@@ -22,6 +22,6 @@ curl -X DELETE http://127.0.0.1:8000/facturas/1
 
 curl -L -X POST "http://127.0.0.1:8000/facturadetalles/" -H "Content-Type: application/json" --data-raw "{\"factura_id\":\"1\",\"producto_id\":\"1\",\"cantidad\":\"2\"}"
 curl http://127.0.0.1:8000/facturadetalles/1
-curl -L -X PUT "http://127.0.0.1:8000/facturadetalles/" -H "Content-Type: application/json" --data-raw "{\"factura_id\":\"1\",\"producto_id\":\"1\",\"cantidad\":\"3\"}"
+curl -L -X PUT "http://127.0.0.1:8000/facturadetalles/" -H "Content-Type: application/json" --data-raw "{\"id\":\"1\",\"factura_id\":\"1\",\"producto_id\":\"1\",\"cantidad\":\"3\"}"
 curl -X DELETE http://127.0.0.1:8000/facturadetalles/1
 
