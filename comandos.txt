@@ -11,17 +11,31 @@ Ejecutar aplicación
 cd app&&uvicorn main:app --reload
 
 Pruebas iniciales
+Producto:
+Crear:
 curl -L -X POST "http://127.0.0.1:8000/productos/" -H "Content-Type: application/json" --data-raw "{\"nombre\":\"nombre\",\"precio\":\"100\"}"
+Consultar:
 curl http://127.0.0.1:8000/productos/1
+Actualizar:
 curl -L -X PUT "http://127.0.0.1:8000/productos/" -H "Content-Type: application/json" --data-raw "{\"id\":\"1\",\"nombre\":\"nombreModificado\",\"precio\":\"100\"}"
+Eliminar:
 curl -X DELETE http://127.0.0.1:8000/productos/1
 
+Factura:
+Crear:
 curl -L -X POST "http://127.0.0.1:8000/facturas/" -H "Content-Type: application/json" --data-raw "{}"
+Consultar:
 curl http://127.0.0.1:8000/facturas/1
+Eliminar:
 curl -X DELETE http://127.0.0.1:8000/facturas/1
 
+Detalle de factura:
+Crear:
 curl -L -X POST "http://127.0.0.1:8000/facturadetalles/" -H "Content-Type: application/json" --data-raw "{\"factura_id\":\"1\",\"producto_id\":\"1\",\"cantidad\":\"2\"}"
+Consultar:
 curl http://127.0.0.1:8000/facturadetalles/1
+Actualizar:
 curl -L -X PUT "http://127.0.0.1:8000/facturadetalles/" -H "Content-Type: application/json" --data-raw "{\"id\":\"1\",\"factura_id\":\"1\",\"producto_id\":\"1\",\"cantidad\":\"3\"}"
+Eliminar:
 curl -X DELETE http://127.0.0.1:8000/facturadetalles/1
 
