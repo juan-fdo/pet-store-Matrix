@@ -1,9 +1,10 @@
 from sqlalchemy.orm import Session
 from schemas import SFactura
 from models.Factura import Factura
+from datetime import date
 
 def create(db: Session, factura: SFactura.Create):
-	db_factura = Factura()
+	db_factura = Factura(fecha = date.today())
 	db.add(db_factura)
 	db.commit()
 	db.refresh(db_factura)
