@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 class Base(BaseModel):
-	pass
+	datetime.date
 
 class Create(Base):
 	pass
